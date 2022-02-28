@@ -165,7 +165,7 @@ USER gotenberg
 WORKDIR /home/gotenberg
 
 # Default API port.
-#EXPOSE 3000
+EXPOSE 3000
 
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "gotenberg" ]

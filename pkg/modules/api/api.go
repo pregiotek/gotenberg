@@ -161,7 +161,7 @@ func (API) Descriptor() gotenberg.ModuleDescriptor {
 		ID: "api",
 		FlagSet: func() *flag.FlagSet {
 			fs := flag.NewFlagSet("api", flag.ExitOnError)
-			fs.Int("api-port", 80, "Set the port on which the API should listen")
+			fs.Int("api-port", 3000, "Set the port on which the API should listen")
 			fs.String("api-port-from-env", "", "Set the environment variable with the port on which the API should listen - override the default port")
 			fs.Duration("api-read-timeout", time.Duration(30)*time.Second, "Set the maximum duration allowed to read a complete request, including the body")
 			fs.Duration("api-process-timeout", time.Duration(30)*time.Second, "Set the maximum duration allowed to process a request")
