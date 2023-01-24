@@ -10,9 +10,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '4832319c-1732-445f-9b70-978567c9399a'
   imageRepository: 'pregiotekgotenberg'
-  containerRegistry: 'identifyrregistry.azurecr.io'
+  containerRegistry: 'identifyrregistry-connection'
   dockerfilePath: '$(Build.SourcesDirectory)/build/Dockerfile'
   tag: '$(Build.BuildId)'
 
@@ -34,7 +33,7 @@ stages:
         command: build
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(containerRegistry)
         buildContext: $(Build.SourcesDirectory)
         tags: |
           $(tag)
@@ -45,6 +44,6 @@ stages:
         command: push
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(containerRegistry)
         tags: |
           $(tag)
